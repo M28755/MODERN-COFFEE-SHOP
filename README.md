@@ -43,7 +43,7 @@ To maintain a sophisticated and minimalist appearance, depth is created through 
 
 The shape language is defined by "Soft Organic" geometry. While the grid is structured and precise, the elements themselves have rounded corners to evoke the smoothness of a well-poured latte.
 
-Standard UI elements like buttons and input fields use a `0.5rem` (8px) radius. Large containers, such as product cards or imagery, should use `rounded-lg` (16px) or `rounded-xl` (24px) to emphasize a friendly, welcoming quality. Avoid sharp 90-degree angles to prevent the UI from feeling too clinical or corporate.
+Standard UI elements like buttons and input fields use a (8px) radius. Large containers, such as product cards or imagery, should use  (16px) or (24px) to emphasize a friendly, welcoming quality. Avoid sharp 90-degree angles to prevent the UI from feeling too clinical or corporate.
 
 ## Components
 
