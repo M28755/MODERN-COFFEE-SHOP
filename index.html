@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <!--  Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Aura</a>
+
+            <!-- center menu -->
+            <ul class="nav-links">
+                <li><a href="/menu" class="nav-link">Menu</a></li>
+                <li><a href="/locations" class="nav-link">Locations</a></li>
+                <li><a href="/story" class="nav-link">Our Story</a></li>
+                <li><a href="/journal" class="nav-link">Journal</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Search -->
+                <button class="nav-icon-btn" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
+                </button>
+
+                <!-- Cart -->
+                <button class="nav-icon-btn" id="cartToggle" aria-label="Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                        <path d="M3 6h18" />
+                        <path d="M16 10a4 4 0 0 1-8 0" />
+                    </svg>
+                    <span class="cart-badge">2</span>
+                </button>
+
+                <!-- CTA -->
+                <a href="/order" class="btn-primary">Order Online</a>
+            </div>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+            </button>
+
+        </div>
+    </header>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="/menu" class="nav-link">Menu</a>
+        <a href="/locations" class="nav-link">Locations</a>
+        <a href="/story" class="nav-link">Our Story</a>
+        <a href="/journal" class="nav-link">Journal</a>
+        <a href="/order" class="btn-primary" style="margin-top: 24px;">Order Online</a>
+    </div>
+    <aside class="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Order</h2>
+            <button class="nav-icon-btn" id="cartClose" aria-label="Close Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                </svg>
+            </button>
+        </div>
+        <!-- Cart items will be injected here via JavaScript later -->
+        <div
+            style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--color-steam); font-family: var(--font-sans);">
+            Your cart is empty
+        </div>
+    </aside>
+    <script src="script.js"></script>
+</body>
+
+</html>
