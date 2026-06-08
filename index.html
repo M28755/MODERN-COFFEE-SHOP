@@ -22,14 +22,14 @@
 
             <!-- center menu -->
             <ul class="nav-links">
-                <li><a href="/menu" class="nav-link">Menu</a></li>
-                <li><a href="/locations" class="nav-link">Locations</a></li>
-                <li><a href="/story" class="nav-link">Our Story</a></li>
-                <li><a href="/journal" class="nav-link">Journal</a></li>
+                <li><a href="#" class="nav-link">Menu</a></li>
+                <li><a href="#" class="nav-link">Locations</a></li>
+                <li><a href="#" class="nav-link">Our Story</a></li>
+                <li><a href="#" class="nav-link">Journal</a></li>
             </ul>
             <div class="nav-actions">
                 <!-- Search -->
-                <button class="nav-icon-btn" aria-label="Search">
+                <button class="nav-icon-btn" aria-label="Search" id="searchToggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8" />
@@ -49,7 +49,7 @@
                 </button>
 
                 <!-- CTA -->
-                <a href="/order" class="btn-primary">Order Online</a>
+                <a href="/order" class="btn-primary order-btn ">Order Online</a>
             </div>
 
             <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
@@ -65,13 +65,13 @@
     </header>
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="/menu" class="nav-link">Menu</a>
-        <a href="/locations" class="nav-link">Locations</a>
-        <a href="/story" class="nav-link">Our Story</a>
-        <a href="/journal" class="nav-link">Journal</a>
-        <a href="/order" class="btn-primary" style="margin-top: 24px;">Order Online</a>
+        <a href="#" class="nav-link">Menu</a>
+        <a href="#" class="nav-link">Locations</a>
+        <a href="#" class="nav-link">Our Story</a>
+        <a href="#" class="nav-link">Journal</a>
+        <a href="#" class="btn-primary" style="margin-top: 24px;">Order Online</a>
     </div>
-    <aside class="cart-drawer">
+    <aside class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
             <h2>Your Order</h2>
             <button class="nav-icon-btn" id="cartClose" aria-label="Close Cart">
@@ -82,12 +82,38 @@
                 </svg>
             </button>
         </div>
-        <!-- Cart items will be injected here via JavaScript later -->
+
         <div
             style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--color-steam); font-family: var(--font-sans);">
             Your cart is empty
         </div>
     </aside>
+    <div class="search-overlay" id="searchOverlay">
+        <!-- close search  -->
+        <button class="search-close" id="searchClose" aria-label="Close search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+            </svg>
+        </button>
+
+        <!-- Search Content -->
+        <div class="search-input-wrapper">
+            <!-- search bar -->
+            <input type="text" class="search-input" id="searchInput" placeholder="What are you craving?"
+                autocomplete="off">
+
+            <!-- Quick Links -->
+            <div class="search-suggestions">
+                <button class="search-pill" data-query="Oat Latte">Oat Latte</button>
+                <button class="search-pill" data-query="Pour Over">Pour Over</button>
+                <button class="search-pill" data-query="Decaf">Decaf</button>
+                <button class="search-pill" data-query="Pastries">Pastries</button>
+                <button class="search-pill" data-query="Single Origin">Single Origin</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 
