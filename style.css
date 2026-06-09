@@ -353,6 +353,113 @@
     transform: translateY(-2px);
 }
 
+/* ========================
+HERO SECTION
+========================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-espresso);
+    background-blend-mode: overlay;
+}
+
+.hero-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--margin-desktop);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-glass {
+    max-width: 620px;
+    padding: 64px;
+    background: rgba(255, 248, 245, 0.267);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.233);
+    border-radius: 1.5rem;
+    box-shadow:
+        0 20px 40px rgba(26, 15, 10, 0.15),
+        inset 0 0 0 1px rgba(255, 248, 245, 0.2);
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--color-espresso);
+    line-height: 1.3;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.hero-text {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    color: var(--color-steam);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.btn-secondary {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 9999px;
+    color: var(--color-espresso);
+    border: 1px solid var(--color-);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-glass>* {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-espresso);
+    color: var(--color-cream);
+}
+
+.hero-label {
+    animation-delay: 0.3s;
+}
+
+.hero-title {
+    animation-delay: 0.5s;
+}
+
+.hero-text {
+    animation-delay: 0.7s;
+}
+
+.hero-actions {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
 
     .nav-links {
@@ -370,6 +477,23 @@
 
     .order-btn {
         display: none;
+    }
+
+    .hero {
+        background-position: right center;
+    }
+
+    .hero-container {
+        padding: 0 var(--margin-mobile);
+        padding-top: 80px;
+    }
+
+    .hero-glass {
+        max-width: 100%;
+        padding: 40px 24px;
+
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
     }
 
 }

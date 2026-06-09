@@ -12,6 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchPills = document.querySelectorAll('.search-pill');
 
+
+
+    const heroSection = document.getElementById('home');
+
+
+    const handleNavScroll = () => {
+
+        const scrollTrigger = heroSection.offsetHeight * 0.5;
+
+        if (window.scrollY > scrollTrigger) {
+            mainNav.classList.add('scrolled');
+        } else {
+            mainNav.classList.remove('scrolled');
+        }
+    };
+
+    window.addEventListener('scroll', handleNavScroll);
+    handleNavScroll();
+
     //scrolling effect
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {

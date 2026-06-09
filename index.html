@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="PHOTOS/icon-image.jpg" type="image/jpeg">
     <title>Modern Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
     <!--  Google fonts-->
@@ -62,58 +63,83 @@
             </button>
 
         </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#" class="nav-link">Menu</a>
+            <a href="#" class="nav-link">Locations</a>
+            <a href="#" class="nav-link">Our Story</a>
+            <a href="#" class="nav-link">Journal</a>
+            <a href="#" class="btn-primary" style="margin-top: 24px;">Order Online</a>
+        </div>
+        <aside class="cart-drawer" id="cartDrawer">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button class="nav-icon-btn" id="cartClose" aria-label="Close Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div
+                style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--color-steam); font-family: var(--font-sans);">
+                Your cart is empty
+            </div>
+        </aside>
+
     </header>
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#" class="nav-link">Menu</a>
-        <a href="#" class="nav-link">Locations</a>
-        <a href="#" class="nav-link">Our Story</a>
-        <a href="#" class="nav-link">Journal</a>
-        <a href="#" class="btn-primary" style="margin-top: 24px;">Order Online</a>
-    </div>
-    <aside class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h2>Your Order</h2>
-            <button class="nav-icon-btn" id="cartClose" aria-label="Close Cart">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+    <main>
+        <div class="search-overlay" id="searchOverlay">
+            <!-- close search  -->
+            <button class="search-close" id="searchClose" aria-label="Close search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M18 6 6 18" />
                     <path d="m6 6 12 12" />
                 </svg>
             </button>
-        </div>
 
-        <div
-            style="flex: 1; display: flex; align-items: center; justify-content: center; color: var(--color-steam); font-family: var(--font-sans);">
-            Your cart is empty
-        </div>
-    </aside>
-    <div class="search-overlay" id="searchOverlay">
-        <!-- close search  -->
-        <button class="search-close" id="searchClose" aria-label="Close search">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-            </svg>
-        </button>
+            <!-- Search Content -->
+            <div class="search-input-wrapper">
+                <!-- search bar -->
+                <input type="text" class="search-input" id="searchInput" placeholder="What are you craving?"
+                    autocomplete="off">
 
-        <!-- Search Content -->
-        <div class="search-input-wrapper">
-            <!-- search bar -->
-            <input type="text" class="search-input" id="searchInput" placeholder="What are you craving?"
-                autocomplete="off">
-
-            <!-- Quick Links -->
-            <div class="search-suggestions">
-                <button class="search-pill" data-query="Oat Latte">Oat Latte</button>
-                <button class="search-pill" data-query="Pour Over">Pour Over</button>
-                <button class="search-pill" data-query="Decaf">Decaf</button>
-                <button class="search-pill" data-query="Pastries">Pastries</button>
-                <button class="search-pill" data-query="Single Origin">Single Origin</button>
+                <!-- Quick Links -->
+                <div class="search-suggestions">
+                    <button class="search-pill" data-query="Oat Latte">Oat Latte</button>
+                    <button class="search-pill" data-query="Pour Over">Pour Over</button>
+                    <button class="search-pill" data-query="Decaf">Decaf</button>
+                    <button class="search-pill" data-query="Pastries">Pastries</button>
+                    <button class="search-pill" data-query="Single Origin">Single Origin</button>
+                </div>
             </div>
         </div>
-    </div>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+
+                <div class="hero-glass">
+                    <h1 class="hero-title">Where Every Sip Tells a Story</h1>
+                    <p class="hero-text">Experience the perfect blend of tradition and innovation in every cup.</p>
+                    <p class="hero-text"> At Aura, we believe every cup is an invitation to pause,
+                        breathe, and savor the present.</p>
+                    <button class="btn-primary" id="discoverBtn">Discover Our Menu</button>
+
+                    <!-- action button -->
+                    <div class="hero-actions">
+                        <a href="/order" class="btn-primary">Order Online</a>
+                        <a href="/story" class="btn-secondary">Our Story</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
     <script src="script.js"></script>
 </body>
 
