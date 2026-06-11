@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartClose = document.getElementById('cartClose');
     //search element
     const searchToggle = document.getElementById('searchToggle');
-    const searchOverlay = document.getElementById('searchOverlay');
-    const searchClose = document.getElementById('searchClose');
+    // const searchOverlay = document.getElementById('searchOverlay');
+    // const searchClose = document.getElementById('searchClose');
     const searchInput = document.getElementById('searchInput');
     const searchPills = document.querySelectorAll('.search-pill');
 
@@ -40,32 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
             mainNav.classList.remove('scrolled')
         }
     })
-    searchToggle.addEventListener('click', () => {
-        searchOverlay.classList.add('is-open')
-        document.body.style.overflow = "hidden"
-
-        setTimeout(() => {
-            searchInput.focus();
-        }, 300);
-    })
+    /*  searchToggle.addEventListener('click', () => {
+         searchOverlay.classList.add('is-open')
+         document.body.style.overflow = "hidden"
+ 
+         setTimeout(() => {
+             searchInput.focus();
+         }, 300);
+     }) */
     //close search
-    function closeSearch() {
-        searchOverlay.classList.remove('is-open')
-        document.body.style.overflow = ""
-        searchInput.value = ""
-    }
-    searchClose.addEventListener('click', closeSearch)
-    //Keyboard Accessibility (ESC to close)
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key == 'Escape') {
-            if (searchOverlay.classList.contains('is-open')) {
-                closeSearch()
-            }
-
-        }
-
-    })
     searchPills.forEach(pill => {
         pill.addEventListener('click', () => {
             const query = pill.getAttribute('data-query')
@@ -174,13 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             currentYear = year; // Update tracker
                             stickyYear.classList.remove('is-switching');
 
-                            // console.log('Year changed', year)
+                            //console.log('Year changed', year)
                         }, 400); // Matches the CSS transition speed
 
                     }
 
 
-                    //  console.log('story-block is intersecting')
+                    //console.log('story-block is intersecting')
 
                     entry.target.classList.add('is-visible')
                 } else {
@@ -226,4 +210,195 @@ document.addEventListener('DOMContentLoaded', () => {
         handleProgress(); // Run on load
 
     }
+
+    const testimonialForm = document.getElementById('testimonialForm')
+    const testimonialsGrid = document.getElementById('testimonialsGrid')
+
+    if (testimonialForm && testimonialsGrid) {
+        testimonialForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            //get the input values
+            const nameInput = document.getElementById('nameInput')
+            const textInput = document.getElementById('textInput')
+
+            const name = nameInput.value.trim();
+            const text = textInput.value.trim();
+
+            //validate the input
+            if (name.length < 3 || text.length < 10) {
+                alert('Please enter a name with at least 3 characters and a review with at least 10 characters');
+                return;
+            }
+            if (!name || !text) {
+                return;
+            }
+            //create new card element
+            const newCard = document.createElement('article')
+            newCard.className = 'testimonial-card new-card'
+
+            //create html structure
+            newCard.innerHTML = `
+            <div class="quote-icon">“</div>
+        <p class="testimonial-text">${text}</p>
+        <h4 class="testimonial-author">${name}</h4>
+        <span class="testimonial-date">Just now</span>
+
+             
+            `
+            testimonialsGrid.prepend(newCard)
+
+            newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+
+            setTimeout(() => {
+                newCard.classList.remove('new-card');
+            }, 1000);
+
+
+            testimonialForm.reset();
+
+        })
+    }
+
+    const newsletterForm = document.getElementById("newsletterForm")
+    const newsletterBtn = document.getElementById('newsletterBtn')
+
+    if (newsletterBtn) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            newsletterBtn.innerText = 'Subscribed'
+            newsletterBtn.classList.add('is-success')
+
+
+            document.getElementById('emailInput').value = '';
+
+            setTimeout(() => {
+                newsletterBtn.innerText = 'Subscribe';
+                newsletterBtn.classList.remove('is-success');
+            }, 3000);
+        })
+    }
+
+
+    const navMenuLink = document.querySelectorAll('.nav-link[href = "/menu"]')
+    const orderOnlineBtn = document.querySelectorAll('.btn-primary[href = "/order"]')
+
+
+    const orderOverlay = document.getElementById('orderOverlay')
+    const closeOrderBtn = document.getElementById('closeOrderBtn')
+    const orderContent = document.getElementById('orderContent')
+    const categoryPills = document.querySelectorAll('.cat-pill')
+
+
+    const openOrderPanel = (filterCategory = 'all') => {
+        orderOverlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        mainNav.style.zIndex = '-1001';
+        mainNav.style.display = 'none'
+
+        console.log('Opening order panel with filter:', filterCategory)
+
+        filterMenu(filterCategory)
+
+        //lets set the correct category pill to active 
+        categoryPills.forEach(pill => {
+            pill.classList.remove('is-active');
+            // console.log(pill)
+            if (pill.getAttribute('data-filter') === filterCategory) {
+                pill.classList.add('is-active');
+                console.log(pill)
+            }
+            /*  pill.addEventListener('click', () => {
+                 const newFilter = pill.getAttribute('data-filter')
+                 console.log(newFilter);
+ 
+             }) */
+
+        })
+
+
+
+
+
+    }
+    //open panel with nav order online button
+    orderOnlineBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault()
+            openOrderPanel('hot')
+        })
+    })
+    //open panel with nav menu
+    navMenuLink.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault()
+            openOrderPanel('all')
+
+            console.log('Panel opened with all products')
+        })
+    })
+
+    if (searchToggle) {
+        searchToggle.addEventListener('click', () => {
+            openOrderPanel('all')
+        })
+    }
+    function closeSearch() {
+        orderOverlay.classList.remove('is-open')
+        document.body.style.overflow = ""
+        mainNav.style.zIndex = '1000';
+        mainNav.style.display = 'flex'
+
+    }
+    closeOrderBtn.addEventListener('click', closeSearch)
+    //Keyboard Accessibility (ESC to close)
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key == 'Escape') {
+            if (orderOverlay.classList.contains('is-open')) {
+                closeSearch()
+            }
+
+        }
+
+    })
+
+    //category filtering inside overlay
+    const menuCategories = document.querySelectorAll('.menu-category')
+    const filterMenu = (filter) => {
+        //fade out contect
+        orderContent.style.opacity = '0'
+
+        setTimeout(() => {
+            menuCategories.forEach(cart => {
+                if (filter === 'all' || cart.getAttribute('data-category') === filter) {
+                    cart.style.display = 'block';
+
+                    //console.log(filter)
+                } else {
+                    cart.style.display = 'none'
+                }
+            });
+
+            orderContent.scrollTop = 0
+
+            orderContent.style.opacity = '1'
+
+        }, 300)
+    }
+
+    categoryPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const filter = pill.getAttribute('data-filter');
+
+            categoryPills.forEach(p => {
+                p.classList.remove('is-active')
+            });
+            pill.classList.add('is-active');
+            filterMenu(filter);
+        })
+    })
+
 })

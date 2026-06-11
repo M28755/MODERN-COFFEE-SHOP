@@ -7,6 +7,7 @@
     <link rel="icon" href="PHOTOS/icon-image.jpg" type="image/jpeg">
     <title>Modern Coffee Shop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
     <!--  Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,9 +24,9 @@
 
             <!-- center menu -->
             <ul class="nav-links">
-                <li><a href="#" class="nav-link">Menu</a></li>
+                <li><a href="/menu" class="nav-link">Menu</a></li>
                 <li><a href="#" class="nav-link">Locations</a></li>
-                <li><a href="#" class="nav-link">Our Story</a></li>
+                <li><a href="#story" class="nav-link">Our Story</a></li>
                 <li><a href="#" class="nav-link">Journal</a></li>
             </ul>
             <div class="nav-actions">
@@ -66,11 +67,11 @@
 
         <!-- Mobile Menu Overlay -->
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#" class="nav-link">Menu</a>
+            <a href="/menu" class="nav-link">Menu</a>
             <a href="#" class="nav-link">Locations</a>
-            <a href="#" class="nav-link">Our Story</a>
+            <a href="#story" class="nav-link">Our Story</a>
             <a href="#" class="nav-link">Journal</a>
-            <a href="#" class="btn-primary" style="margin-top: 24px;">Order Online</a>
+            <a href="/order" class="btn-primary" style="margin-top: 24px;">Order Online</a>
         </div>
         <aside class="cart-drawer" id="cartDrawer">
             <div class="cart-header">
@@ -93,7 +94,7 @@
     </header>
     <main>
         <div class="search-overlay" id="searchOverlay">
-            <!-- close search  -->
+
             <button class="search-close" id="searchClose" aria-label="Close search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -102,13 +103,9 @@
                 </svg>
             </button>
 
-            <!-- Search Content -->
             <div class="search-input-wrapper">
-                <!-- search bar -->
                 <input type="text" class="search-input" id="searchInput" placeholder="What are you craving?"
                     autocomplete="off">
-
-                <!-- Quick Links -->
                 <div class="search-suggestions">
                     <button class="search-pill" data-query="Oat Latte">Oat Latte</button>
                     <button class="search-pill" data-query="Pour Over">Pour Over</button>
@@ -127,7 +124,7 @@
                     <p class="hero-text">Experience the perfect blend of tradition and innovation in every cup.</p>
                     <p class="hero-text"> At Aura, we believe every cup is an invitation to pause,
                         breathe, and savor the present.</p>
-                    <button class="btn-primary" id="discoverBtn">Discover Our Menu</button>
+                    <!--   <button class="btn-primary" id="discoverBtn">Discover Our Menu</button> -->
 
                     <!-- action button -->
                     <div class="hero-actions">
@@ -303,6 +300,270 @@
                 </div>
             </div>
         </section>
+        <!-- Testimonials section -->
+        <section class="testimonial-section" id="Testimonials">
+            <div class="testimonials-container">
+                <!-- section header -->
+                <div class="section-header">
+                    <span class="hero-label">The Community Say This</span>
+                    <h2 class="section-title">Words from Our Regulars</h2>
+                </div>
+                <!-- The GuestBook Form -->
+                <div class="guestbook-wrapper">
+                    <div class="guestbook-left">
+                        <h3 class="guestbook-title">Leave Your Mark</h3>
+                        <p class="guestbook-subtext">
+                            We don't just brew coffee; we build connections. Share your favorite Aura memory or your
+                            go-to order with the community.
+                        </p>
+                    </div>
+                    <form action="#" class="guestbook-form" id="testimonialForm">
+                        <div class="form-group">
+                            <label class="form-label" for="nameInput">Your Name</label>
+                            <input type="text" id="nameInput" class="form-input" placeholder="e.g. O.Mike." required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="textinput">Your Thoughts</label>
+                            <textarea id="textInput" class="form-textarea" placeholder="What makes your visit special?"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary form-submit">Share to Wall</button>
+
+                    </form>
+                </div>
+                <!-- Testimonials Grid -->
+                <div class="testimonials-grid" id="testimonialGrid">
+
+                    <!-- Pre-existing Card 1 -->
+                    <article class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <p class="testimonial-text">The Kenyan Pour Over here changed how I think about coffee. It's
+                            not just a caffeine hit; it's a 15-minute ritual that resets my entire morning.</p>
+                        <h4 class="testimonial-author">Sarah K.</h4>
+                        <span class="testimonial-date">Regular since 2021</span>
+                    </article>
+
+                    <!-- Pre-existing Card 2 -->
+                    <article class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <p class="testimonial-text">Finally, a café where the ambiance matches the quality of the beans.
+                            The warm lighting and that burnt orange branding? Chef's kiss.</p>
+                        <h4 class="testimonial-author">David R.</h4>
+                        <span class="testimonial-date">Regular since 2022</span>
+                    </article>
+
+                    <!-- Pre-existing Card 3 -->
+                    <article class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <p class="testimonial-text">I come for the Oat Latte, I stay for the peace. The staff remembers
+                            my name and my order. It feels like a true neighborhood spot.</p>
+                        <h4 class="testimonial-author">Mia T.</h4>
+                        <span class="testimonial-date">Regular since 2023</span>
+                    </article>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- footer -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div>
+                        <h2 class="footer-headline">Join the <span>Aura</span> Circle</h2>
+                        <p class="footer-subtext">Seasonal menus, brewing tips, and quiet moments delivered directly to
+                            your inbox. No spam, just slow living.</p>
+                    </div>
+
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="input-row">
+                            <input type="email" class="footer-input" placeholder="Your email address" required
+                                id="emailInput">
+                            <button type="submit" class="btn-footer" id="newsletterBtn">Subscribe</button>
+                        </div>
+                        <span class="form-disclaimer">We respect your privacy. Unsubscribe anytime.</span>
+                    </form>
+                </div>
+
+                <div class="footer-middle">
+                    <div class="footer-brand">
+                        <a href="/" class="footer-logo">Aura</a>
+                        <p class="footer-tagline">Crafted for the slow moments. Specialty coffee roasted with patience
+                            and served with care.</p>
+
+                        <div class="social-links">
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter/X">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="TikTok">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>Visit</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Lamu</a></li>
+                            <li><a href="#">Kilifi</a></li>
+                            <li><a href="#">Mombasa, KE</a></li>
+                            <li><a href="#">Hours & Maps</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>Explore</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Our Menu</a></li>
+                            <li><a href="#">Wholesale</a></li>
+                            <li><a href="#">Sourcing</a></li>
+                            <li><a href="#">The Journal</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-link-group">
+                        <h4>Help</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Shipping & Returns</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="footer-bottom">
+                    <span class="copyright">&copy; 2024 Aura Coffee. All rights reserved.</span>
+                    <ul class="legal-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Settings</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </footer>
+
+
+        <!-- Unified Ordering Overlay -->
+        <div class="order-overlay" id="orderOverlay">
+
+            <!-- Header: Handle, Title, Close -->
+            <div class="order-header">
+                <div class="drag-handle"></div>
+                <div class="order-header-top">
+                    <h2 class="order-title">Order Online</h2>
+                    <button class="close-order-btn" id="closeOrderBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Categories / "Search" Pills -->
+                <div class="category-pills">
+                    <button class="cat-pill is-active" data-filter="all">All</button>
+                    <button class="cat-pill" data-filter="hot">Hot Drinks</button>
+                    <button class="cat-pill" data-filter="cold-brew">Cold Brew</button>
+                    <button class="cat-pill" data-filter="pastry">Pastries</button>
+                    <button class="cat-pill" data-filter="whole-beans">Whole Beans</button>
+                </div>
+            </div>
+
+            <!-- Scrollable Menu Content -->
+            <div class="order-content" id="orderContent">
+
+                <!-- Category: Hot Drinks -->
+                <div class="menu-category" data-category="hot">
+                    <h3 class="menu-category-title">Hot Drinks</h3>
+
+                    <div class="order-item">
+                        <div class="order-item-info">
+                            <h4 class="order-item-name">Espresso</h4>
+                            <span class="order-item-price">KSH 450.00</span>
+                            <p class="order-item-desc">Rich, concentrated, and capped with a thick, golden crema.</p>
+                        </div>
+                        <button class="add-item-btn" aria-label="Add Espresso">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="order-item">
+                        <div class="order-item-info">
+                            <h4 class="order-item-name">Vanilla Oat Latte</h4>
+                            <span class="order-item-price">KSH 450.00</span>
+                            <p class="order-item-desc">Double shot, house-made vanilla, organic oat milk.</p>
+                        </div>
+                        <button class="add-item-btn" aria-label="Add Vanilla Oat Latte">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category: Cold Brew -->
+                <div class="menu-category" data-category="cold-brew">
+                    <h3 class="menu-category-title">Cold Brew</h3>
+
+                    <div class="order-item">
+                        <div class="order-item-info">
+                            <h4 class="order-item-name">Classic Cold Brew</h4>
+                            <span class="order-item-price">KSH 450.00</span>
+                            <p class="order-item-desc">Steeped 18 hours. Smooth, bold, low acidity.</p>
+                        </div>
+                        <button class="add-item-btn" aria-label="Add Classic Cold Brew">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14" />
+                                <path d="M12 5v14" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sticky Cart Footer -->
+            <div class="order-footer" id="orderFooter">
+                <div class="cart-summary">
+                    <span class="cart-item-count" id="footerCartCount">0 items</span>
+                    <span class="cart-total" id="footerCartTotal">KSh 0.00</span>
+                </div>
+                <button class="view-cart-btn">View Cart</button>
+            </div>
+
+        </div>
+
 
     </main>
     <script src="script.js"></script>
