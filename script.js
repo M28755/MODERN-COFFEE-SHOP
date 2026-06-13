@@ -95,44 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
-    const addButton = document.querySelectorAll('.add-btn')
-    const cartBadge = document.querySelector('.cart-badge')
 
-    addButton.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-
-            e.preventDefault()
-            //get current count
-            cartCount = parseInt(cartBadge.textContent) || 0;
-
-            cartCount++;
-            //update badge with new count
-            cartBadge.textContent = cartCount;
-
-            cartBadge.style.transform = 'scale(1.2)';
-            cartBadge.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-
-            setTimeout(() => {
-                cartBadge.style.transform = 'scale(1)';
-            }, 200);
-
-
-            btn.style.backgroundColor = '#c76c00';
-            btn.style.color = '#ffffff';
-            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
-
-
-            setTimeout(() => {
-                btn.style.backgroundColor = '';
-                btn.style.color = '';
-                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`;
-            }, 1000);
-
-
-
-
-        })
-    })
     const timeLineContent = document.getElementById('timelineContent');
     const stickyYear = document.getElementById('stickyYear');
     const timelineProgress = document.getElementById('timeLineprogress');
@@ -212,7 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const testimonialForm = document.getElementById('testimonialForm')
-    const testimonialsGrid = document.getElementById('testimonialsGrid')
+    const testimonialsGrid = document.getElementById('testimonialGrid')
+
 
     if (testimonialForm && testimonialsGrid) {
         testimonialForm.addEventListener('submit', (e) => {
@@ -224,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const name = nameInput.value.trim();
             const text = textInput.value.trim();
+
 
             //validate the input
             if (name.length < 3 || text.length < 10) {
@@ -246,10 +211,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
              
             `
+
             testimonialsGrid.prepend(newCard)
 
             newCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+
+            console.log(newCard)
 
             setTimeout(() => {
                 newCard.classList.remove('new-card');
@@ -400,5 +368,107 @@ document.addEventListener('DOMContentLoaded', () => {
             filterMenu(filter);
         })
     })
+
+    //adding to cart and updating the footer
+    const AddButtons = document.querySelectorAll('.add-btn')
+
+    //cart state
+    let cartCount = 0;
+    let cartTotal = 0;
+    const cartBadge = document.querySelector('.cart-badge')
+    const footerCartCounter = document.getElementById('footerCartCount')
+    const footerCartTotal = document.getElementById('footerCartTotal')
+
+    AddButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+
+            e.preventDefault()
+            //get current count
+            cartCount = parseInt(cartBadge.textContent) || 0;
+
+            cartCount++;
+            //update badge with new count
+            cartBadge.textContent = cartCount;
+            // console.log(cartCount, "is the updated count");
+
+            cartBadge.style.transform = 'scale(1.2)';
+            cartBadge.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+
+
+            //get price from product card
+            const priceString = btn.closest('.drink-card').querySelector('.drink-price').innerText;
+            const price = parseFloat(priceString.replace('KSH', ''))
+
+            cartTotal += price
+
+            console.log(cartTotal)
+            // console.log(priceString, "is the price");
+            /*  setTimeout(() => {
+                 cartBadge.style.transform = 'scale(1)';
+             }, 200);
+ 
+ 
+             btn.style.backgroundColor = '#c76c00';
+             btn.style.color = '#ffffff';
+             btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+ 
+ 
+             setTimeout(() => {
+                 btn.style.backgroundColor = '';
+                 btn.style.color = '';
+                 btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`;
+             }, 1000);
+  */
+
+            footerCartTotal.innerText = `KES ${cartTotal.toFixed(2)}`
+            footerCartCounter.innerText = `${cartCount} ${cartCount == 1 ? 'Item' : 'Items'}`
+
+
+            //button feedback
+            btn.style.backgroundColor = '#cf7d5a56'
+            btn.style.borderColor = '#cf7d5a56'
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+            showToast('Item added to cart!', 'success');
+            setTimeout(() => {
+                btn.style.backgroundColor = ''
+                btn.style.borderColor = ''
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`;
+
+
+            }, 3000);
+
+
+        })
+    })
+    orderContent.style.transition = 'opacity 0.3s ease';
+
+
+    function showToast(message, type = 'success') {
+
+        const toastContainer = document.getElementById('toastContainer')
+
+
+
+        //create dynamiic toast element
+        const toast = document.createElement('div')
+        toast.classList.add('toast', type)
+        toast.innerText = message;
+
+
+        toastContainer.appendChild(toast)
+
+        if (type == 'success') {
+            toast.style.background = '#713600'
+        } else {
+            toast.style.background = 'red'
+        }
+        setTimeout(() => {
+            toast.classList.add('hide');
+            toast.addEventListener('animationend', () => {
+                toast.remove()
+            })
+        }, 3000)
+
+    }
 
 })

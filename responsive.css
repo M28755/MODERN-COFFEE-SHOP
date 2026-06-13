@@ -1,3 +1,25 @@
+:root {
+    --color-espresso: #201b17;
+    --color-cream: #cf7d5a56;
+    --color-latte: #f7ece5;
+    --color-steam: #807570;
+    --color-accent: #c76c00;
+    --color-accent-hover: #a85a00;
+    --color-accent-secondary: #2f1500;
+    --color-white: #ffffff;
+    --font-serif: 'Libre Caslon Text', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --nav-height: 80px;
+    --container-max: 1280px;
+    --margin-desktop: 20px;
+    --margin-mobile: 20px;
+    --shadow-aura: 0 4px 20px rgba(26, 15, 10, 0.08);
+    --shadow-aura-hover: 0 8px 30px rgba(26, 15, 10, 0.12);
+}
+
+
+
+
 @media (max-width: 1024px) {
     .drinks-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -27,6 +49,9 @@
 
     .nav-container {
         padding: 0 var(--margin-mobile);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .order-btn {
@@ -152,6 +177,10 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
+    }
+
+    .cart-header {
+        padding: 12px;
     }
 
     .section-title {
